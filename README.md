@@ -8,6 +8,23 @@ All URLs and payloads in this repository are generic examples. The default host 
 
 Vietnamese documentation: [`docs/README.vi.md`](docs/README.vi.md).
 
+## Standards reference
+
+This demo implements the core mechanism defined by
+[RFC 9449 — OAuth 2.0 Demonstrating Proof of Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449).
+
+The most relevant sections are:
+
+- [Section 4: DPoP Proof JWTs](https://datatracker.ietf.org/doc/html/rfc9449#section-4)
+- [Section 6: Public Key Confirmation](https://datatracker.ietf.org/doc/html/rfc9449#section-6)
+- [Section 7: Protected Resource Access](https://datatracker.ietf.org/doc/html/rfc9449#section-7)
+- [Section 11: Security Considerations](https://datatracker.ietf.org/doc/html/rfc9449#section-11)
+
+The sample uses ES256 with a P-256 key and covers token binding, per-request proofs, protected
+resource access, refresh, and retry. It does not implement the authorization-server or
+resource-server nonce mechanisms from Sections 8 and 9. Add nonce handling if your server requires
+or advertises `DPoP-Nonce`.
+
 ## What the demo covers
 
 - Generates a non-extractable ECDSA P-256 private key with the Web Crypto API.
